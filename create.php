@@ -7,12 +7,15 @@
     </head>
 <body>
 <h2>Enter the fields below to create a new blog</h2>
-<form action="store.php">
+<form action="store.php" method="post">
     <label for="title">Enter the title for your blog:</label>
     <input id="title" type="text" name="title" placeholder="Enter title" />
+
     <br></br>
     <label for="content">Enter the content of the blog:</label>
     <input id="content" type="text" name="content" placeholder="enter the content"/>
+    <br></br>
+    <input type="submit" value="submit" >
 </form>
 </body>
 </html>
