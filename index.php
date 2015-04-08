@@ -3,7 +3,7 @@ require_once "config.php";
 $query="SELECT*FROM `blogs`";
 $result=$connection->query($query);
 $listOfBlogs=$result->fetch_all(MYSQLI_ASSOC);
-var_dump($listOfBlogs);
+
 ?>
 
 <!DOCTYPE html>
@@ -13,16 +13,15 @@ var_dump($listOfBlogs);
     <title>CodeKamp | list of all blogs</title>
 </head>
 <body>
+<h1 style="text-align: center">All the blogs are listed below:</h1>
 
 
 <ul>
 <?php
 
+
 foreach($listOfBlogs as $blog) {
-
-
-  <a href="view.php?id='$blog['id']'">  $blog['title'] </a>
-    echo "<br>";
+    echo "<li>$blog['title']" "</li>";
 }
 
 ?>
