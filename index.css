@@ -1,9 +1,13 @@
 body{
-    background-color: floralwhite;
+    background-color: antiquewhite;
 }
 .div{
     background-color: aquamarine;
-    float: left;
+    clear: both;
+    border: solid 1px black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 1000px;
 }
 a:hover{
     text-decoration: blink;
@@ -11,7 +15,12 @@ a:hover{
 }
 #link{
     text-decoration: none;
-    clear: both;
+    float: right;
+}
+#link1{
+    float: right;
+    margin-top: 10px;
+    margin-left: 0px;
 }
 #head {
     text-decoration: underline;

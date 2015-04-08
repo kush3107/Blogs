@@ -38,7 +38,7 @@ foreach($listOfBlogs as $blog) {
     </ul>
 
 </div>
-<div class="div" id="link" >
+<div class="div" id="link1" >
 <h2>To delete any blog click on it</h2>
     <ul>
         <?php
