@@ -1,19 +1,37 @@
+<?php
+require_once "config.php";
+
+if(count($_POST))
+{
+    var_dump($_POST);
+    $query="insert into `blogs` (`title`, `content`) values('{$_POST['title']} ',' {$_POST['content']} ')";
+$kush=$connection->query($query);
+
+    echo "Blog successfully created!";
+    $newId=$connection->insert_id;
+
+}
+else{
+    //get errors
+    echo $connection->error;
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Create new blog</title>
+    <title>CodeKamp | Create new blog</title>
     </head>
 <body>
 <h2>Enter the fields below to create a new blog</h2>
-<form action="store.php" method="post">
+<form method="post">
     <label for="title">Enter the title for your blog:</label>
     <input id="title" type="text" name="title" placeholder="Enter title" />
-
     <br></br>
-    <label for="content">Enter the content of the blog:</label>
-    <input id="content" type="text" name="content" placeholder="enter the content"/>
+    <label for="content">Enter the contents of the blog:</label>
+    <textarea id="content" type="text" name="content" placeholder="Enter the contents" ></textarea>
     <br></br>
     <input type="submit" value="submit" >
 </form>

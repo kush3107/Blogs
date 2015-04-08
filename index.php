@@ -21,7 +21,7 @@ $listOfBlogs=$result->fetch_all(MYSQLI_ASSOC);
 
 
 foreach($listOfBlogs as $blog) {
-    echo "<li>$blog['title']" "</li>";
+    echo '<li><a href="view.php?id='.$blog['id'].' ">'.$blog['title'].'</a></li>';
 }
 
 ?>

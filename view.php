@@ -1,6 +1,11 @@
 <?php
 require_once "config.php";
-$query = "select*from `blog`"
+$query = "SELECT * FROM `blogs` where `id` =" .$_GET['id'];
+$result=$connection->query($query);
+$kush=$result->fetch_assoc();
+
+
+
     ?>
 
 
@@ -12,9 +17,13 @@ $query = "select*from `blog`"
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>View Blogs</title>
+    <title>CodeKamp | <?= $blog['title'] ?></title>
 </head>
 <body>
 <h2>Title</h2>
+<p><?= $kush['title'] ?></p>
 <h2>Content</h2>
+<p><?= $kush['content'] ?>
+    </body>
+</html>
 
