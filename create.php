@@ -9,13 +9,9 @@ $kush=$connection->query($query);
 
     echo "Blog successfully created!";
     $newId=$connection->insert_id;
+    var_dump($_POST);
 
 }
-else{
-    //get errors
-    echo $connection->error;
-}
-
 ?>
 
 <!DOCTYPE html>

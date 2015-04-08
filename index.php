@@ -8,10 +8,12 @@ $listOfBlogs=$result->fetch_all(MYSQLI_ASSOC);
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <link type="text/css" rel="stylesheet" href="index.css" />
     <meta charset="UTF-8">
     <title>CodeKamp | Blogs</title>
 </head>
-<div class="div"></div>
+<h1 id="head" >ABESEC BLOGS</h1>
+<div class="div">
 <body>
 <h1>All the blogs are listed below:</h1>
 <ul>
@@ -22,7 +24,7 @@ foreach($listOfBlogs as $blog) {
 ?>
 </ul>
 </div>
-<div class="div">
+<div class="div" id="link">
     <h2><a href="create.php"> To create a blog click on this link</a></h2>
 </div>
 <div class="div">
@@ -36,7 +38,7 @@ foreach($listOfBlogs as $blog) {
     </ul>
 
 </div>
-<div class="div" id="link">
+<div class="div" id="link" >
 <h2>To delete any blog click on it</h2>
     <ul>
         <?php

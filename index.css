@@ -1,0 +1,20 @@
+body{
+    background-color: floralwhite;
+}
+.div{
+    background-color: aquamarine;
+    float: left;
+}
+a:hover{
+    text-decoration: blink;
+    color: cornflowerblue;
+}
+#link{
+    text-decoration: none;
+    clear: both;
+}
+#head {
+    text-decoration: underline;
+    text-align: center;
+    clear: both;
+}
