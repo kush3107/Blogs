@@ -4,10 +4,10 @@ $query = "SELECT * FROM `blogs` where `id` =" .$_GET['id'];
 $result=$connection->query($query);
 $listOfBlogs=$result->fetch_all(MYSQLI_ASSOC);
 $kush=$listOfBlogs[0];
-if(strlen($_POST['title'])){
+if(count($_POST)){
 $query1="update `blogs` set `title`='{$_POST['title']}' , `content`='{$_POST['content']}' where id='{$_GET['id']}'";
 $result1=$connection->query($query1);}
-if($result1)
+if(isset($result1)&&$result1)
 {
     $newId=$connection->insert_id;
 }
@@ -15,7 +15,7 @@ else{
     echo $connection->error;
 }
 ?>
-?>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -34,6 +34,9 @@ else{
     <br></br>
     <input type="submit" value="OK" >
 </form>
+<div class="home">
+<a href="http://localhost/blog/">HOME</a>
+</div>
 </body>
 </html>
 

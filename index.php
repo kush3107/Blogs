@@ -51,7 +51,7 @@ foreach($listOfBlogs as $blog) {
     </ul>
 </div>
 <div class="header" id="footer">
-    <p>About Us | Contact Us | Privacy | Terms Of Service</p>
+    <p><a href="about_us.html">About Us</a> | <a href="contact_us.html">Contact Us</a> | Privacy | Terms Of Service</p>
 </div>
 </body>
 </html>

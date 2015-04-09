@@ -31,5 +31,6 @@ $kush=$connection->query($query);
     <br></br>
     <input type="submit" value="submit" >
 </form>
+<a class="home" href="http://localhost/blog/">HOME</a>
 </body>
 </html>
