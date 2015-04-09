@@ -7,7 +7,14 @@ $kush=$listOfBlogs[0];
 if(strlen($_POST['title'])){
 $query1="update `blogs` set `title`='{$_POST['title']}' , `content`='{$_POST['content']}' where id='{$_GET['id']}'";
 $result1=$connection->query($query1);}
-var_dump($_POST);
+if($result1)
+{
+    $newId=$connection->insert_id;
+}
+else{
+    echo $connection->error;
+}
+?>
 ?>
 <!DOCTYPE html>
 <html>

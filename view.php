@@ -3,15 +3,7 @@ require_once "config.php";
 $query = "SELECT * FROM `blogs` where `id` =" .$_GET['id'];
 $result=$connection->query($query);
 $kush=$result->fetch_assoc();
-
-
-
-    ?>
-
-
-
-
-
+?>
 
     <!DOCTYPE html>
 <html>
@@ -24,6 +16,7 @@ $kush=$result->fetch_assoc();
 <p><?= $kush['title'] ?></p>
 <h2>Content</h2>
 <p><?= $kush['content'] ?>
+
     </body>
 </html>
 
