@@ -20,7 +20,7 @@ var_dump($_POST);
 <h4>Hit OK to save</h4>
 <form method="post">
     <label for="title">Edit the title for your blog:</label>
-    <input id="title" type="text" value=<?= $kush['title'] ?> />
+    <input id="title" type="text" name='title' value=<?= $kush['title'] ?> />
     <br></br>
     <label for="content">Edit the contents of your blog:</label>
     <textarea id="content" type="text" name="content" placeholder="enter the content" ><?= $kush['content'] ?></textarea>
