@@ -26,7 +26,6 @@ foreach($listOfBlogs as $blog) {
 </ul>
 </div>
 
-    <h2><a href="create.php"> To create a blog click on this link</a></h2>
 <div class="center">
 
     <h2>To edit any blog click on it</h2>
@@ -50,8 +49,12 @@ foreach($listOfBlogs as $blog) {
         ?>
     </ul>
 </div>
+<h2><a href="signUp.php"> To Sign Up click on this link</a></h2>
+<h2><a href="login.php"> To Log In click on this link</a></h2>
+
 <div class="header" id="footer">
     <p><a href="about_us.html">About Us</a> | <a href="contact_us.html">Contact Us</a> | Privacy | Terms Of Service</p>
 </div>
+
 </body>
 </html>
