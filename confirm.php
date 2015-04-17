@@ -40,10 +40,13 @@ if($_POST['email']=='')
     header("Location: $emailRedirect");
 
 }
-    $query1=" insert into `user` ( `user_name`, `e-mail` , `password` ) values ('{$_POST['fullName']}','{$_POST['email']}','{$_POST['password']}')";
+$hash=md5($_POST['password']);
+    $query1=" insert into `user` ( `user_name`, `e-mail` , `password` ) values ('{$_POST['fullName']}','{$_POST['email']}','{$hash}')";
     $result1=$connection->query($query1);
     echo "Sign Up successful";
-    $location="login.php";
+
+$location="login.php";
+    // header("Location: $location");
 ?>
 <!DOCTYPE html>
 <html>

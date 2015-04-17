@@ -1,11 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Kushagra
- * Date: 16-04-2015
- * Time: 23:12
- */
-?>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -13,12 +6,13 @@
     <title>CodKamp | Log In</title>
 </head>
 <body>
-<h1>Enter your details</h1>
+<h1>Login Page</h1>
+<h2>Enter your details:</h2>
 <form method="post" action="login.php">
     <label for="email">Enter your E-mail:</label>
     <input id="email" type="text" name="email" placeholder="E-mail ID here" />
     <label for="password">Enter your password:</label>
-    <input id="password" type="password" name="password" placeholder="password" />
+    <input id="password" type="password" name="password" placeholder="Password" />
     <?php
     if(isset($_GET['error']))
     {
@@ -38,10 +32,13 @@ $list=$result->fetch_all(MYSQLI_ASSOC);
 
 if($_POST) {
     foreach ($list as $element) {
-        if (($element['e-mail'] == $_POST['email']) && ($element['password'] == $_POST['password']))
+        if (($element['e-mail'] == $_POST['email']) && ($element['password'] == md5($_POST['password'])))
         {
             $location = "profile.php";
-            $error=0;
+            $random=rand();
+            $query1="insert into `session`(`session_id` , `user_id`) values('{$random}','{$element['id']}')";
+            $result1=$connection->query($query1);
+            setcookie("cookie",$random);
             header("Location: $location");
         }
         else{
