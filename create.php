@@ -3,7 +3,7 @@ require_once "config.php";
 
 if(count($_POST))
 {
-    var_dump($_POST);
+   // var_dump($_POST);
     $query="insert into `blogs` (`title`, `content`) values('{$_POST['title']} ',' {$_POST['content']} ')";
 $kush=$connection->query($query);
 
@@ -31,6 +31,6 @@ $kush=$connection->query($query);
     <br></br>
     <input type="submit" value="submit" >
 </form>
-<a class="home" href="http://localhost/blog/">HOME</a>
+<a class="home" href="http://localhost/blog/profile.php">HOME</a>
 </body>
 </html>

@@ -28,6 +28,8 @@
     ?>
     <label for="password">Choose a password:</label>
     <input id="password" type="password" name="password" placeholder="Password" />
+    <label for="key">Enter A Key:</label>
+    <input id="key" type="text" name="key" placeholder="Key here" />
     <?php
     if(isset($_GET['emailerror'])) {
         if ($_GET['emailerror'] == 2) {

@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -14,14 +16,18 @@
     <label for="password">Enter your password:</label>
     <input id="password" type="password" name="password" placeholder="Password" />
     <?php
-    if(isset($_GET['error']))
+    if(isset($_SESSION['error']))
     {
-        if($_GET['error']==1)
-    echo '<span style="color: red">*E-mail or Password Incorrect</span>';
+        if($_SESSION['error']==1) {
+            $_SESSION['error'] = 0;
+
+            echo '<span style="color: red">*E-mail or Password Incorrect</span>';
+        }
     }
     ?>
     <input type="submit" value="submit" />
     </form>
+</form>
 </body>
 </html>
 <?php
@@ -32,18 +38,19 @@ $list=$result->fetch_all(MYSQLI_ASSOC);
 
 if($_POST) {
     foreach ($list as $element) {
-        if (($element['e-mail'] == $_POST['email']) && ($element['password'] == md5($_POST['password'])))
-        {
-            $location = "profile.php";
-            $random=rand();
-            $query1="insert into `session`(`session_id` , `user_id`) values('{$random}','{$element['id']}')";
-            $result1=$connection->query($query1);
-            setcookie("cookie",$random);
-            header("Location: $location");
-        }
+            if (($element['e-mail'] == $_POST['email']) && ($element['password'] == md5($_POST['password']))) {
+                session_unset();
+                $location = "profile.php";
+                $random = rand();
+                $query1 = "insert into `session`(`session_id` , `user_id`) values('{$random}','{$element['id']}')";
+                $result1 = $connection->query($query1);
+                setcookie("cookie", $random);
+                header("Location: $location");
+            }
+
         else{
-            $error=1;
-            $location1="login.php?error=".$error;
+            $_SESSION['error']=1;
+            $location1="login.php";
             header("Location: $location1");
         }
     }

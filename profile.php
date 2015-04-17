@@ -65,6 +65,9 @@ if(isset($_COOKIE['cookie']))
         ?>
     </ul>
 </div>
+<br>
+<br>
+<a href="create.php">To create a blog CLICK HERE!</a>
 <a href="logout.php">LogOut</a>
 </body>
 </html>
