@@ -1,9 +1,9 @@
 <?php
 require_once "config.php";
-$query = "SELECT * FROM `blogs` where `id` =" .$_GET['id'];
+$query = "SELECT `title`,`content` FROM `blogs` where `id` =" .$_GET['id'];
 $result=$connection->query($query);
-$listOfBlogs=$result->fetch_all(MYSQLI_ASSOC);
-$kush=$listOfBlogs[0];
+$listOfBlogs=$result->fetch_assoc();
+
 if(count($_POST)){
 $query1="update `blogs` set `title`='{$_POST['title']}' , `content`='{$_POST['content']}' where id='{$_GET['id']}'";
 $result1=$connection->query($query1);}
@@ -18,24 +18,36 @@ else{
 
 <!DOCTYPE html>
 <html>
+<link rel="icon" href="kuPra.png" type="image/png" sizes="16x16">
 <head lang="en">
+    <link type="text/css" rel="stylesheet" href="bootstrap.css" />
     <meta charset="UTF-8">
-    <title>CodeKamp | Edit blog</title>
+    <title>KUPRA | Edit blog</title>
 </head>
-<body>
-<h2>Edit the fields below to edit a blog</h2>
-<h4>Hit OK to save</h4>
+
+
+<body class="bg-danger">
+<div class="jumbotron">
+<h1>Edit the fields below to edit your blog:</h1>
+</div>
 <form method="post">
-    <label for="title">Edit the title for your blog:</label>
-    <input id="title" type="text" name='title' value=<?= $kush['title'] ?> />
+    <div class="form-group">
+    <label for="title" class="col-sm-2 control-label">Edit the title for your blog:</label>
+        <div class="col-sm-8">
+    <input id="title" type="text" class="form-control" name='title' value=<?= $listOfBlogs['title'] ?> />
+            </div>
+        </div>
     <br></br>
-    <label for="content">Edit the contents of your blog:</label>
-    <textarea id="content" type="text" name="content" placeholder="enter the content" ><?= $kush['content'] ?></textarea>
-    <br></br>
-    <input type="submit" value="OK" >
+    <div class="form-group">
+    <label for="content" class="col-sm-2 control-label">Edit the contents of your blog:</label>
+        <div class="col-sm-8">
+    <textarea id="content" type="text" class="form-control" name="content" placeholder="enter the content" ><?= $listOfBlogs['content'] ?></textarea>
+    </div>
+        </div>
+    <input type="submit" class="btn btn-default" value="OK" >
 </form>
-<div class="home">
-<a href="http://localhost/blog/">HOME</a>
+<div class="pull-left">
+<a class="btn btn-default pull-left"  href="http://localhost/blog/profile.php">HOME</a>
 </div>
 </body>
 </html>
