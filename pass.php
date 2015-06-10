@@ -1,12 +1,13 @@
 <?php
+var_dump($_POST);
 require_once "config.php";
-$query1="select `security_ques`,`security_ans` from `user` where `id` = '{$id}'";
+$query1="select `security_ques`,`security_ans` from `user` where `id` = '{$_POST['id']}'";
 $result1=$connection->query($query1);
 $userDetail=$result1->fetch_assoc();
 //var_dump($userDetails);
 
 if($_POST) {
-    if ($_POST['ans'] === $userDetail['security_ans']) {
+    if ($_POST['ans'] == $userDetail['security_ans']) {
         $location = "pass.php";
         header("Location: $location");
     } else {

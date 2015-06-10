@@ -1,4 +1,9 @@
 <?php
+setcookie("viewCheck",1);
+if(isset($_COOKIE['counter']))
+{
+    setcookie("viewCheck","",time()-3600);
+}
 require_once "config.php";
 $query="SELECT*FROM `blogs`";
 $result=$connection->query($query);
@@ -45,6 +50,8 @@ foreach($listOfBlogs as $blog) {
     echo '<h3><li><a href="view.php?id='.$blog['id'].' ">'.$blog['title'].'</a></li></h3>';
     echo '<em>created by, '.$blog['creator'].' </em>';
     echo '<em>'.$blog['views'].' views</em>';
+    echo '<br>';
+    echo '<em>created at, '.$blog['creation'].' </em>';
 }
 ?>
 </ul>

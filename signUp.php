@@ -10,7 +10,7 @@
     <title>KUPRA | Sign Up</title>
 </head>
 <script>
-    function checkAddress(fieldId)
+    function checkAddress()
     {
         var val=document.getElementById('fullName').value.length;
         var val1=document.getElementById('password').value.length;
@@ -28,7 +28,7 @@
 <body class="bg-danger">
 <div class="jumbotron">
 <h1>Please fill the form to Sign Up</h1></div>
-<form class="form-horizontal" onsubmit="return checkAddress('e-mail');" method="post" action="confirm.php" enctype="multipart/form-data">
+<form class="form-horizontal" onsubmit="return checkAddress();" method="post" action="confirm.php" enctype="multipart/form-data">
     <div class="form-group">
     <label for="fullName" class="col-sm-2 control-label">Enter your full name:<span style="color: red">*</span></label>
         <div class="col-sm-8">

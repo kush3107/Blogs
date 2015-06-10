@@ -16,7 +16,7 @@ if(count($_POST))
 {
    // var_dump($_POST);
     $time=time();
-    $query="insert into `blogs` (`userId`,`title`, `content`,`creator`,`creation`) values('{$userId}','{$_POST['title']} ',' {$_POST['content']} ','{$userName[0]}','{$time}')";
+    $query="insert into `blogs` (`userId`,`title`, `content`,`creator`,`creation`) values('{$userId}','{$_POST['title']} ',' {$_POST['content']} ','{$userName[0]}',CURRENT_TIMESTAMP )";
     $kush=$connection->query($query);
 
     echo "Blog successfully created!";
@@ -30,9 +30,9 @@ if(count($_POST))
 <html>
 <link rel="icon" href="kuPra.png" type="image/png" sizes="16x16">
 <head lang="en">
-    <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="bootstrap.css" />
 
+    <meta charset="UTF-8">
     <title>KUPRA | Create new blog</title>
     </head>
 <body class="bg-danger">

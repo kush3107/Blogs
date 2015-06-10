@@ -1,4 +1,5 @@
 <?php
+setcookie("couter","",time()-3600);
 require_once "config.php";
 $query="SELECT*FROM `blogs`";
 $result=$connection->query($query);
@@ -95,6 +96,8 @@ if(isset($_COOKIE['cookie']))
                 echo '<h3><li><a id="view" href="view.php?id=' . $blog['id'] . ' ">' . $blog['title'] . '</a></li></h3>';
                     echo '<em>created by, ' . $blog['creator'] . ' </em>';
                 echo '<em>'.$blog['views'].' views</em>';
+                echo '<br>';
+                echo '<em>created at, '.$blog['creation'].' </em>';
 
                 echo '<br>';
                 if($blog['userId']===$userId)

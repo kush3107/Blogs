@@ -3,18 +3,26 @@ require_once "config.php";
 $query = "SELECT * FROM `blogs` where `id` =" .$_GET['id'];
 $result=$connection->query($query);
 $kush=$result->fetch_assoc();
-if($kush['views']===0) {
-    $c=0;
-    $c++;
-    $query1 = "update `blogs` set `views`='{$c}' where id='{$_GET['id']}'";
-    $result1 = $connection->query($query1);
+if(isset($_COOKIE['viewCheck'])&&$_COOKIE["viewCheck"]==1)
+{
+    if ($kush['views'] === 0)
+    {
+        $c = 0;
+        $c++;
+        $query1 = "update `blogs` set `views`='{$c}' where id='{$_GET['id']}'";
+        $result1 = $connection->query($query1);
+        setcookie("counter",1);
+    }
+    else
+    {
+        $c = $kush['views'];
+        $c++;
+        $query1 = "update `blogs` set `views`='{$c}' where id='{$_GET['id']}'";
+        $result1 = $connection->query($query1);
+        setcookie("counter",1);
+    }
 }
-else{
-    $c=$kush['views'];
-    $c++;
-    $query1 = "update `blogs` set `views`='{$c}' where id='{$_GET['id']}'";
-    $result1 = $connection->query($query1);
-}
+setcookie('viewCheck',"",time()-3600);
 ?>
 
     <!DOCTYPE html>

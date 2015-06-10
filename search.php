@@ -16,7 +16,7 @@ foreach($userDetails as $user)
 $query1="select `security_ques`,`security_ans` from `user` where `id` = '{$id}'";
 $result1=$connection->query($query1);
 $userDetail=$result1->fetch_assoc();
-//var_dump($userDetails);
+var_dump($userDetails);
 ?>
 <!DOCTYPE html>
     <html>
@@ -37,6 +37,7 @@ $userDetail=$result1->fetch_assoc();
         <input type="text" id="ques" value=<?=$userDetail['security_ques']?> />
         <label for="ans">
             <input type="text" id="ans" name="ans" placeholder="Your security answer">
+            <input type="hidden" name="id" value=<?=$id?> />
             <input type="submit" value="OK" />
             </form>
 </body>
