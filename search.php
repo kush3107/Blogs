@@ -16,7 +16,9 @@ foreach($userDetails as $user)
 $query1="select `security_ques`,`security_ans` from `user` where `id` = '{$id}'";
 $result1=$connection->query($query1);
 $userDetail=$result1->fetch_assoc();
-var_dump($userDetails);
+$location="pass.php?id=$id";
+//var_dump($location);
+//var_dump($userDetails);
 ?>
 <!DOCTYPE html>
     <html>
@@ -32,14 +34,13 @@ var_dump($userDetails);
 <h2>Welcome, <?=$name?> </h2>
 <img src=<?=$media?> height="200" width="180" />
 </div>
-<form method="post" action="pass.php">
-    <label for="ques">
-        <input type="text" id="ques" value=<?=$userDetail['security_ques']?> />
-        <label for="ans">
+<strong class="text-center"><?=$userDetail['security_ques']?></strong>
+<form method="post" action= <?=$location?> >
+    <label for="ans">
             <input type="text" id="ans" name="ans" placeholder="Your security answer">
-            <input type="hidden" name="id" value=<?=$id?> />
-            <input type="submit" value="OK" />
-            </form>
+
+            <input type="submit" value="OK">
+</form>
 </body>
 </html>
 <?php

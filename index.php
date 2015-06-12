@@ -15,6 +15,8 @@ $listOfBlogs=$result->fetch_all(MYSQLI_ASSOC);
 <link rel="icon" href="kuPra.png" type="image/png" sizes="16x16">
 <head lang="en">
     <link type="text/css" rel="stylesheet" href="bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="index.css" />
+
     <meta charset="UTF-8">
     <title>KUPRA | Blogs</title>
 </head>
@@ -47,11 +49,15 @@ $listOfBlogs=$result->fetch_all(MYSQLI_ASSOC);
 <ul>
 <?php
 foreach($listOfBlogs as $blog) {
+    echo '<div id="view">';
+    echo '<div id="title">';
     echo '<h3><li><a href="view.php?id='.$blog['id'].' ">'.$blog['title'].'</a></li></h3>';
-    echo '<em>created by, '.$blog['creator'].' </em>';
+    echo '</div>';
+    echo '<em>created by, '.$blog['creator'].', </em>';
     echo '<em>'.$blog['views'].' views</em>';
     echo '<br>';
     echo '<em>created at, '.$blog['creation'].' </em>';
+    echo '</div>';
 }
 ?>
 </ul>

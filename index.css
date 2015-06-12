@@ -1,41 +1,9 @@
-body{
-    background-color: antiquewhite;
-}
-.div {
-    background-color: aqua;
-    display: inline-block;
-    clear: both;
-    border: solid 1px black;
+#view{
+
+    background-color: #e4b9c0;
 
 }
-.home{
-    text-decoration: none;
-    text-align: center;
-}
-.delete{
+#title{
+    margin-top: 20;
 
-    background-color: aqua;
-    border: solid 1px black;
-    display: inline-block;
-
-    margin-right: 0px;
-}
-a:hover{
-    text-decoration: none;
-    color: coral;
-
-}
-.center{
-    background-color: aqua;
-    display: inline-block;
-
-
-    border: solid 1px black;
-}
-#footer{
-
-}
-.header{
-    text-align: center;
-    background-color: burlywood;
 }

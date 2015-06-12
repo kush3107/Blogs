@@ -30,7 +30,7 @@
 <h1>Please fill the form to Sign Up</h1></div>
 <form class="form-horizontal" onsubmit="return checkAddress();" method="post" action="confirm.php" enctype="multipart/form-data">
     <div class="form-group">
-    <label for="fullName" class="col-sm-2 control-label">Enter your full name:<span style="color: red">*</span></label>
+    <label for="fullName" class="col-sm-2 control-label"><span style="color: red">*</span>Enter your full name:</label>
         <div class="col-sm-8">
     <input id="fullName" class="form-control" type="text" name="fullName" placeholder="Enter your name" />
         </div>
